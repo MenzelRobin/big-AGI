@@ -16,16 +16,16 @@ const _knownOpenAIChatModels: ManualMappings = [
   {
     idPrefix: 'gpt-4o',
     label: 'GPT-4o',
-    description: 'Currently points to gpt-4o-2024-05-13.',
-    symLink: 'gpt-4o-2024-05-13',
+    description: 'Points to gpt-4o-2024-08-06 starting on Oct 2, 2024.',
+    symLink: 'gpt-4o-2024-08-06',
     hidden: true,
     // copied from symlinked
     contextWindow: 128000,
-    maxCompletionTokens: 4096,
+    maxCompletionTokens: 16384,
     trainingDataCutoff: 'Oct 2023',
     interfaces: [LLM_IF_OAI_Chat, LLM_IF_OAI_Vision, LLM_IF_OAI_Fn, LLM_IF_OAI_Json],
-    pricing: { chatIn: 5, chatOut: 15 },
-    benchmark: { cbaElo: 1286 },
+    pricing: { chatIn: 2.5, chatOut: 10 },
+    benchmark: { cbaElo: 1286 + 1 },
   },
   {
     isLatest: true,
@@ -785,10 +785,14 @@ export function openRouterModelFamilySortFn(a: { id: string }, b: { id: string }
   return aPrefixIndex !== -1 ? -1 : 1;
 }
 
-export function openRouterModelToModelDescription(wireModel: object): ModelDescriptionSchema {
+export function openRouterModelToModelDescription(wireModel: object): ModelDescriptionSchema | null {
 
   // parse the model
-  const model = wireOpenrouterModelsListOutputSchema.parse(wireModel);
+  const { data: model, error } = wireOpenrouterModelsListOutputSchema.safeParse(wireModel);
+  if (error) {
+    console.warn(`openrouterModelToModelDescription: Failed to parse model: ${error}`);
+    return null;
+  }
 
   // parse pricing
   const pricing: ModelDescriptionSchema['pricing'] = {

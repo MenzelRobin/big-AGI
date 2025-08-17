@@ -19,11 +19,23 @@ Or fork & run on Vercel
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fenricoros%2Fbig-AGI&env=OPENAI_API_KEY&envDescription=Backend%20API%20keys%2C%20optional%20and%20may%20be%20overridden%20by%20the%20UI.&envLink=https%3A%2F%2Fgithub.com%2Fenricoros%2Fbig-AGI%2Fblob%2Fmain%2Fdocs%2Fenvironment-variables.md&project-name=big-AGI)
 
+### New Version
+
+This repository contains two main versions:
+
+- Big-AGI 2: next-generation, bringing the most advanced AI experience
+  - `v2-dev`: V2 development branch, the exciting one, future default
+- Big-AGI Stable: as deployed on big-agi.com
+  - `v1-stable`: Current stable version & Docker 'latest' tag
+
+Note: After the V2 release in Q4, `v2/dev` will become the default branch and `v1/dev` will reach EOL.
+
 ### Quick links: 👉 [roadmap](https://github.com/users/enricoros/projects/4/views/2) 👉 [installation](docs/installation.md) 👉 [documentation](docs/README.md)
 
-### What's New in 1.16.1...1.16.8 · Sep 13, 2024 (patch releases)
+### What's New in 1.16.1...1.16.9 · Jan 21, 2025 (patch releases)
 
-- 1.16.8: OpenAI ChatGPT-4o Latest (o1-preview and o1-mini are supported in Big-AGI 2)
+- 1.16.9: Docker Gemini fix (R1 models are supported in Big-AGI 2)
+- 1.16.8: OpenAI ChatGPT-4o Latest (o1 models are supported in Big-AGI 2)
 - 1.16.7: OpenAI support for GPT-4o 2024-08-06
 - 1.16.6: Groq support for Llama 3.1 models
 - 1.16.5: GPT-4o Mini support
