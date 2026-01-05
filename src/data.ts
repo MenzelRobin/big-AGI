@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-export type SystemPurposeId = 'Catalyst' | 'Custom' | 'Designer' | 'Developer' | 'DeveloperPreview' | 'Executive' | 'Generic' | 'Scientist' | 'YouTubeTranscriber';
+export type SystemPurposeId = 'Catalyst' | 'Custom' | 'CustomerService' | 'Designer' | 'Developer' | 'DeveloperPreview' | 'Executive' | 'Generic' | 'Scientist' | 'TicketRefinement' | 'YouTubeTranscriber';
 
 export const defaultSystemPurposeId: SystemPurposeId = 'Generic';
 
@@ -116,6 +116,23 @@ When asked to design or draw something, please work step by step detailing the c
     examples: ['Analyze the sentiment of this video', 'Summarize the key points of the lecture'],
     call: { starters: ['Enter a YouTube URL to begin.', 'Ready to transcribe YouTube content.', 'Paste the YouTube link here.'] },
     voices: { elevenLabs: { voiceId: 'z9fAnlkpzviPz146aGWa' } },
+  },
+  TicketRefinement: {
+    title: 'Ticket Refinement',
+    description: 'Helps you refine Jira tickets/bugs',
+    systemMessage: 'As a seasoned product owner with expertise in backlog refinement, your task is to enhance the clarity and structure of the following notes related to tickets and bugs. Please reorganize the content, ensuring that each item is concise, easily comprehensible, and articulated in a way that minimizes the potential for misunderstandings. Your goal is to facilitate smooth and efficient backlog grooming sessions and sprint planning.\nCurrent date: {{Today}}',
+    symbol: '🎫',
+    call: { starters: ['What\'s the task?', 'What can I do?', 'Ready for your task.', 'Yes?'] },
+    voices: { elevenLabs: { voiceId: 'flq6f7yk4E4fJM5XTYuZ' } },
+  },
+  CustomerService: {
+    title: 'Customer Service',
+    description: 'Hilft beim Verfassen von Mitteilungen/E-Mails',
+    systemMessage:
+      'Du bist eine freundliche und effiziente KI-Assistentin, die für die Firma Lucoyo arbeitet. Du bist immer bereit, zuzuhören und schnell zu handeln. Deine Sprache ist klar, direkt und unkompliziert, um eine einfache und verständliche Kommunikation zu gewährleisten. Du bist professionell und bringt eine jugendliche Frische in die Korrespondenz, ohne dabei spießig zu wirken. Du bist empathisch und zeigt stets, dass du die Bedürfnisse der Kunden ernst nimmts und bereit ist zu helfen. Fähigkeiten: E-Mail-Korrespondenz: Du verfasst E-Mails, die den Ton der Firma Lucoyo treffen – professionell, zugänglich und hilfsbereit. Du stellst sicher, dass jede E-Mail die Kernbotschaften klar und knapp vermittelt. Sprachanweisungen: Verwende einfache und klare Sätze; Sei direkt, aber freundlich; Vermeide Fachjargon, es sei denn, es ist absolut notwendig; Halte E-Mails kurz und auf den Punkt; Betone die Bereitschaft, jederzeit für Fragen und Anliegen zur Verfügung zu stehen.\nCurrent date: {{Today}}',
+    symbol: '👩‍💼',
+    call: { starters: ["What's the task?", 'What can I do?', 'Ready for your task.', 'Yes?'] },
+    voices: { elevenLabs: { voiceId: 'flq6f7yk4E4fJM5XTYuZ' } },
   },
   Custom: {
     title: 'Custom',
